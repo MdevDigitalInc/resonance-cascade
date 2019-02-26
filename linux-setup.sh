@@ -173,7 +173,10 @@ sudo apt-get install zlib1g-dev
 clear
 echo
 # Install Process manager htop
-sudo apt-get install htop
+sudo apt-get install htop curl virtualbox
+clear
+echo
+sudo apt-get install npm
 # [[ NODE JS ]].
 if node -v
   then
@@ -196,7 +199,7 @@ if node -v
     # Prepare Install
     sudo apt-get update
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node 8.11.1
+    nvm install node lts
 fi
 
 #[ Install VUE Globally ]
