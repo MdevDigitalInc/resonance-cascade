@@ -157,6 +157,8 @@ echo
 sleep 2s
 read -p "${GREEN}Ready To Proceed?${NC}"
 
+brew install htop curl npm virtualbox
+
 # [ Install NODE ]
 clear
 echo
