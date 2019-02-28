@@ -72,6 +72,8 @@ then
     # Install Git on LInux
     sudo apt-get install git
 fi
+# [ Install Curl ]
+sudo apt-get install curl
 
 # [ CONFIGURE GIT ]
 if git config --global user.name
@@ -93,6 +95,7 @@ else
   echo
   read -p "${GREEN}Please enter your --global user.email...${NC}  " useremail
   git config --global user.email $useremail
+  git config --global core.editor vim
   echo
   echo "${GREEN}Finished Configuring Git. Proceeding.${NC}"
 fi
@@ -156,6 +159,26 @@ sleep 2s
 echo
 read -p "${GREEN}Ready To Proceed?${NC}"
 
+#[ Install OHMYZDSH ]
+clear
+echo "${YELLOW}[ INSTALLING OH-MY-ZSH ]${NC}"
+echo
+sudo apt-get install zsh
+sudo apt-get install git-core
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+clear
+echo
+echo "${YELLOW}[ SETTING ZSH AS DEFAULT ]${NC}"
+chsh -s `which zsh`
+echo
+echo "${GREEN}[ Successfully Installed ZSH and set as default ]"
+echo
+echo "For this to fully take effect you will have to ${RED}REBOOT.${GREEN}"
+echo "Don't worry - The script will reboot at the end of the installation."
+sleep 3s
+read -p "${YELLOW}Ready To Continue with Configuring ZDSH?${NC}"
+clear
+
 clear
 echo
 echo "${YELLOW}[ Installing Necessary Build Tools & Dependencies ]${NC}"
@@ -173,7 +196,40 @@ sudo apt-get install zlib1g-dev
 clear
 echo
 # Install Process manager htop
-sudo apt-get install htop curl virtualbox
+sudo apt-get install htop virtualbox
+
+#[ Install Vim & Vundle ]
+clear
+echo
+echo "${YELLOW}[ INSTALLING BEST IDE ]${NC}"
+echo
+sudo apt-get install vim
+echo
+echo "${GREEN}[ Vim Successfully installed ] ${NC}"
+echo
+echo "${YELLOW}[ INSTALLING VUNDLE ]${NC}"
+echo
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+clear
+
+#[ Install Droid Sans Powerline Font ]
+clear
+echo
+echo "${YELLOW}[ PREPARING FONT INSTALL BY CREATING DIRECTORIES ]${NC}"
+mkdir zsh-my-powerline-fonts
+cd zsh-my-powerline-fonts/
+git clone https://github.com/powerline/fonts.git
+./fonts/install.sh
+cd ..
+sudo rm -r zsh-my-powerline-fonts
+clear
+echo
+echo "${GREEN}[ Powerline Patched Fonts Have Been Installed ...]"
+echo
+echo "You can change the fonts in your terminal preference to enable them${NC}"
+sleep 5s
+
+
 clear
 echo
 sudo apt-get install npm
@@ -221,6 +277,15 @@ echo
 echo "${YELLOW} [ Fixing MOZJPEG ]${NC}"
 sudo apt-get install libtool automake autoconf nasm
 
+#[ Install Atom ]
+clear
+echo
+echo"${YELLOW} [ Install Atom ]${NC}"
+wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+sudo apt-get update
+sudo apt-get install atom
+
 #[ Install Docker ]
 clear
 echo
@@ -243,25 +308,9 @@ base=https://github.com/docker/machine/releases/download/v0.16.0 && curl -L $bas
 
 #[ENDING]
 clear
-echo "${YELLOW}"
 #Show ASCII Art if it's there.
 sleep 2s
-echo "======================================================================================"
-echo
-echo "[ SINGULARITY ACHIEVED ]"
-echo
-echo "List Of Installed Apps:"
-echo
-echo "- Git"
-echo "- Xclip"
-echo "- Vim"
-echo "- Vundle (With Plugins)"
-echo "- OhMyZSH"
-echo "- Tree"
-echo "- HTOP"
-echo "- TaskWarrior"
-echo "- Guake"
-echo
-echo "======================================================================================"
-sleep 5s
+echo "${GREEN}[ INSTALLATION COMPLETE ]${NC}"
+sleep 10s
+sudo systemctl reboot -i
 exit 1

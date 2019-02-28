@@ -1,4 +1,4 @@
-======================================================================================
+=====================================================================================
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 ======================================================================================
 
@@ -6,17 +6,17 @@
          . :H@@@MM@M#H/.,+%;,
       ,/X+ +M@@M@MM%=,-%HMMM@X/,    -------------------------------------------------
      -+@MM; $M@@MH+-,;XMMMM@MMMM@+-
-    ;@M@@M- XM@X;. -+XXXXXHHH@M@M#@/.        WELCOME [ USER_NOT_FOUND ]
+    ;@M@@M- XM@X;. -+XXXXXHHH@M@M#@/.      [ LINUX INITIALIZATION SCRIPT ]
   ,%MM@@MH ,@%=            .---=-=:=,.
-  -@#@@@MX .,              -%HX$$%%%+;
- =-./@M@M$                  .;@MMMM@MM:      WE HAVE BEEN EXPECTING YOUR RETURN...
+  -@#@@@MX .,              -%HX$$%%%+;      Welcome to the singularity hooman. This
+ =-./@M@M$                  .;@MMMM@MM:      Script is designed to ease your journey.
  X@/ -$MM/                    .+MM@@@M$
-,@M@H: :@:                    . -X#@@@@-
-,@@@MMX, .                    /H- ;@M@M=     I AM PROGRAMMED TO EASE THE TRANSITION.
-.H@@@@M@+,                    %MM+..%#$.
- /MMMM@MMH/.                  XM@MH; -;
-  /%+%$XHH@$=              , .H@@@@MX,       PREPARING [ HOSTILE TAKEOVER ]....
-   .=--------.           -%H.,@@@@@MX,
+,@M@H: :@:                    . -X#@@@@-      -  Installs Dev software
+,@@@MMX, .                    /H- ;@M@M=      -  Setup ZSH & VIM
+.H@@@@M@+,                    %MM+..%#$.      -  Install gaming infrastructure
+ /MMMM@MMH/.                  XM@MH; -;       -  Enable Arduino programming
+  /%+%$XHH@$=              , .H@@@@MX,        -  Install and configure Docker
+   .=--------.           -%H.,@@@@@MX,        -  Setup GIT with SSH keys
    .%MM@@@HHHXX$$$%+- .:$MMX -M@@MM%.
      =XMMM@MM@MM#H;,-+HMM@M+ /MMMX=
        =%@M@M#@$-.=$@MM@@@M; %M%=   --------------------------------------------------
@@ -26,8 +26,3 @@
 ======================================================================================
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 ======================================================================================
-
-This script will perform all of the nasty duties clumsy humans fumble with every time
-they get a new laptop / computer / spoon as if they have never seen the thing before.
-
-Just say yes to the prompt below and let me do the rest...

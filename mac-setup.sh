@@ -80,6 +80,7 @@ clear
 echo
 echo "${YELLOW}[ INSTALLING GIT ]${NC}"
 brew install git
+brew install curl
 
 # [ CONFIGURE GIT ]
 if git config --global user.name
@@ -101,6 +102,7 @@ else
   echo
   read -p "${GREEN}Please enter your --global user.email...${NC}  " useremail
   git config --global user.email $useremail
+  git config --global core.editor vim
   echo
   echo "${GREEN}Finished Configuring Git. Proceeding.${NC}"
 fi
@@ -157,14 +159,66 @@ echo
 sleep 2s
 read -p "${GREEN}Ready To Proceed?${NC}"
 
-brew install htop curl npm virtualbox
+#[ Install OHMYZDSH ]
+clear
+echo "${YELLOW}[ INSTALLING OH-MY-ZSH ]${NC}"
+echo
+brew install zsh
+brew install git-core
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+clear
+echo
+echo "${YELLOW}[ SETTING ZSH AS DEFAULT ]${NC}"
+chsh -s `which zsh`
+echo
+echo "${GREEN}[ Successfully Installed ZSH and set as default ]"
+echo
+echo "For this to fully take effect you will have to ${RED}REBOOT.${GREEN}"
+echo "Don't worry - The script will reboot at the end of the installation."
+sleep 3s
+read -p "${YELLOW}Ready To Continue with Configuring ZDSH?${NC}"
+clear
+
+#[ Install Vim & Vundle ]
+clear
+echo
+echo "${YELLOW}[ INSTALLING BEST IDE ]${NC}"
+echo
+brew install vim
+echo
+echo "${GREEN}[ Vim Successfully installed ] ${NC}"
+echo
+echo "${YELLOW}[ INSTALLING VUNDLE ]${NC}"
+echo
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+clear
+
+#[ Install Droid Sans Powerline Font ]
+clear
+echo
+echo "${YELLOW}[ PREPARING FONT INSTALL BY CREATING DIRECTORIES ]${NC}"
+mkdir zsh-my-powerline-fonts
+cd zsh-my-powerline-fonts/
+git clone https://github.com/powerline/fonts.git
+./fonts/install.sh
+cd ..
+sudo rm -r zsh-my-powerline-fonts
+clear
+echo
+echo "${GREEN}[ Powerline Patched Fonts Have Been Installed ...]"
+echo
+echo "You can change the fonts in your terminal preference to enable them${NC}"
+sleep 5s
+
+# [ Virtual Machine & Processes ]
+brew install htop npm virtualbox
 
 # [ Install NODE ]
 clear
 echo
 echo "${YELLOW}[ INSTALLING NODE.JS...]${NC}"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-nvm install node 8.11.1
+nvm install node 10.15.2
 #[ Install VUE Globally ]
 clear
 echo
@@ -184,7 +238,15 @@ echo
 echo "${YELLOW} [ Fixing MOZJPEG ]${NC}"
 brew install libtool automake autoconf nasm
 
+#[ Install Docker ]
+clear
+echo
+echo "${YELLOW} [ Installing DOCKER ]${NC}"
+brew cask install docker
 
 clear
 echo
-echo "${GREEN}[ INSTALLATION COMPLETE]${NC}"
+echo "${GREEN}[ INSTALLATION COMPLETE ]${NC}"
+sleep 10s
+sudo systemctl reboot -i
+exit 1
