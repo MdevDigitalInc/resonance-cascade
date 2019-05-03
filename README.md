@@ -1,4 +1,4 @@
-![MDEV Digital](https://mdev.digital/social/githubLogo.svg)
+![MDEV Digital](https://mdevcdn.digital/images/githublogo.svg)
 
 # Resonance Cascade
 ## Collection of useful Bash setup scripts for setting up new laptops and dev
